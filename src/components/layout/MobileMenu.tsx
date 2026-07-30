@@ -1,5 +1,7 @@
 "use client";
-
+import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { navigation } from "@/config/navigation";
@@ -13,6 +15,27 @@ export default function MobileMenu({
   open,
   onClose,
 }: MobileMenuProps) {
+    const pathname = usePathname();
+    useEffect(() => {
+  document.body.style.overflow = open ? "hidden" : "auto";
+
+  return () => {
+    document.body.style.overflow = "auto";
+  };
+}, [open]);
+useEffect(() => {
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === "Escape") {
+      onClose();
+    }
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+}, [onClose]);
   return (
     <>
       {/* Overlay */}
@@ -47,7 +70,12 @@ export default function MobileMenu({
               key={item.title}
               href={item.href}
               onClick={onClose}
-              className="rounded-lg px-4 py-3 text-zinc-300 transition hover:bg-white/5 hover:text-teal-400"
+              className={clsx(
+  "rounded-lg px-4 py-3 transition-colors",
+  pathname === item.href
+    ? "bg-teal-500/15 text-teal-400"
+    : "text-zinc-300 hover:bg-white/5 hover:text-teal-400"
+)}
             >
               {item.title}
             </Link>
