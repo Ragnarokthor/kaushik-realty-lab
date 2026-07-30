@@ -14,12 +14,10 @@ export default function Button({
   return (
     <button
       className={clsx(
-        "rounded-xl px-6 py-3 font-semibold transition-all duration-300",
-
+        "inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300",
         variant === "primary"
-          ? "bg-white text-black hover:scale-105"
-          : "border border-zinc-700 text-white hover:bg-zinc-900",
-
+          ? "bg-teal-500 text-white hover:bg-teal-400"
+          : "border border-zinc-700 bg-transparent text-white hover:bg-zinc-900",
         className
       )}
       {...props}
