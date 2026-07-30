@@ -13,10 +13,13 @@ import { Button } from "@/components/ui/Button";
 import { navigation } from "@/config/navigation";
 import { ROUTES } from "@/constants/routes";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
   const isScrolled = useScroll();
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <header
   className={clsx(
@@ -58,13 +61,18 @@ export default function Navbar() {
 </Link>
 
           <button
-            type="button"
-            className="rounded-lg border border-zinc-700 p-2 md:hidden"
-          >
-            <Menu size={22} />
-          </button>
+  type="button"
+  onClick={() => setMenuOpen(true)}
+  className="rounded-lg border border-zinc-700 p-2 md:hidden"
+>
+  <Menu size={22} />
+</button>
         </div>
       </Container>
+      <MobileMenu
+  open={menuOpen}
+  onClose={() => setMenuOpen(false)}
+/>
     </header>
   );
 }
