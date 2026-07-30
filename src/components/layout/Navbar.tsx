@@ -12,9 +12,11 @@ import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { navigation } from "@/config/navigation";
 import { ROUTES } from "@/constants/routes";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const isScrolled = useScroll();
+  const pathname = usePathname();
   return (
     <header
   className={clsx(
@@ -32,10 +34,15 @@ export default function Navbar() {
         <nav className="hidden items-center gap-8 md:flex">
           {navigation.map((item) => (
             <Link
-              key={item.title}
-              href={item.href}
-              className="text-sm text-zinc-300 transition-colors hover:text-teal-400"
-            >
+  key={item.title}
+  href={item.href}
+  className={clsx(
+    "relative text-sm transition-colors after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-0 after:bg-teal-400 after:transition-all after:duration-300 hover:after:w-full",
+    pathname === item.href
+      ? "font-semibold text-teal-400 after:w-full"
+      : "text-zinc-300 hover:text-teal-400"
+  )}
+>
               {item.title}
             </Link>
           ))}
