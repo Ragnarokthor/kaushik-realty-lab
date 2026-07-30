@@ -5,6 +5,7 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden py-28">
       <Container>
+        <div className="hero-glow" />
         <div className="mx-auto max-w-4xl text-center">
           <span className="rounded-full border border-teal-500/40 bg-teal-500/10 px-4 py-2 text-sm text-teal-400">
             India's Modern Real Estate Learning Platform
