@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Logo from "./Logo";
 import { Menu } from "lucide-react";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
@@ -18,20 +18,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#030712]/80 backdrop-blur-xl">
       <Container className="flex h-20 items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-500 text-lg font-bold text-white shadow-lg shadow-teal-500/20">
-            KR
-          </div>
-
-          <div>
-            <h1 className="text-lg font-bold text-white">
-              Kaushik Realty Lab
-            </h1>
-            <p className="text-xs text-zinc-400">
-              Learn • Compare • Invest
-            </p>
-          </div>
-        </Link>
+        <Logo />
 
         {/* Desktop Menu */}
         <nav className="hidden items-center gap-8 md:flex">
