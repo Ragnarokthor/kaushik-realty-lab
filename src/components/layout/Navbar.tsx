@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Menu } from "lucide-react";
 
 import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { navigation } from "@/config/navigation";
@@ -31,6 +32,7 @@ export default function Navbar() {
 
         {/* Right Side */}
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Link href={ROUTES.CONTACT}>
   <Button className="hidden md:flex">
     Contact
