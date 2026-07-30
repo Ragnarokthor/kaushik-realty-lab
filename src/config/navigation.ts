@@ -1,22 +1,20 @@
+import { ROUTES } from "@/constants/routes";
+
 export const navigation = [
   {
     title: "Learning",
-    href: "/learning",
-  },
-  {
-    title: "Tools",
-    href: "/tools",
+    href: ROUTES.LEARNING,
   },
   {
     title: "Blogs",
-    href: "/blogs",
+    href: ROUTES.BLOGS,
   },
   {
-    title: "Resources",
-    href: "/resources",
+    title: "Tools",
+    href: ROUTES.TOOLS,
   },
   {
     title: "About",
-    href: "/about",
+    href: ROUTES.ABOUT,
   },
 ];

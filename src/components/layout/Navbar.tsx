@@ -7,6 +7,7 @@ import Logo from "./Logo";
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { navigation } from "@/config/navigation";
+import { ROUTES } from "@/constants/routes";
 
 export default function Navbar() {
   return (
@@ -30,7 +31,7 @@ export default function Navbar() {
 
         {/* Right Side */}
         <div className="flex items-center gap-3">
-          <Link href="/contact">
+          <Link href={ROUTES.CONTACT}>
   <Button className="hidden md:flex">
     Contact
   </Button>
