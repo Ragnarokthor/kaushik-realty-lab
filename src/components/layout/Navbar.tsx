@@ -1,32 +1,62 @@
-import { SITE } from "@/constants/site";
+"use client";
+
+import Link from "next/link";
+import { Menu } from "lucide-react";
+import Container from "../ui/Container";
+import Button from "../ui/Button";
+
+const navItems = [
+  { name: "Learning", href: "#" },
+  { name: "Blogs", href: "#" },
+  { name: "Tools", href: "#" },
+  { name: "Resources", href: "#" },
+  { name: "About", href: "#" },
+];
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-800 bg-black/70 backdrop-blur-xl">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
-        <div>
-          <h1 className="text-xl font-bold text-white">
-            {SITE.name}
-          </h1>
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#030712]/80 backdrop-blur-xl">
+      <Container className="flex h-20 items-center justify-between">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-500 text-lg font-bold text-white shadow-lg shadow-teal-500/20">
+            KR
+          </div>
 
-          <p className="text-xs text-zinc-400">
-            {SITE.title}
-          </p>
-        </div>
+          <div>
+            <h1 className="text-lg font-bold text-white">
+              Kaushik Realty Lab
+            </h1>
+            <p className="text-xs text-zinc-400">
+              Learn • Compare • Invest
+            </p>
+          </div>
+        </Link>
 
-        <nav className="hidden gap-8 text-sm text-zinc-300 md:flex">
-          <a href="#">Learning</a>
-          <a href="#">Blogs</a>
-          <a href="#">Tools</a>
-          <a href="#">Resources</a>
-          <a href="#">Portfolio</a>
-          <a href="#">About</a>
+        {/* Desktop Menu */}
+        <nav className="hidden items-center gap-8 md:flex">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-sm text-zinc-300 transition hover:text-teal-400"
+            >
+              {item.name}
+            </Link>
+          ))}
         </nav>
 
-        <button className="rounded-xl bg-white px-5 py-2 font-medium text-black">
-          Contact
-        </button>
-      </div>
+        {/* Right Side */}
+        <div className="flex items-center gap-3">
+          <Button className="hidden md:flex">
+            Contact
+          </Button>
+
+          <button className="rounded-lg border border-zinc-700 p-2 md:hidden">
+            <Menu size={22} />
+          </button>
+        </div>
+      </Container>
     </header>
   );
 }
