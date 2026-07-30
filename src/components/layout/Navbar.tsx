@@ -1,18 +1,12 @@
 "use client";
 
-import Logo from "./Logo";
 import Link from "next/link";
 import { Menu } from "lucide-react";
-import Container from "../ui/Container";
-import { Button } from "@/components/ui/Button";
 
-const navItems = [
-  { name: "Learning", href: "#" },
-  { name: "Blogs", href: "#" },
-  { name: "Tools", href: "#" },
-  { name: "Resources", href: "#" },
-  { name: "About", href: "#" },
-];
+import Logo from "./Logo";
+import Container from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
+import { navigation } from "@/config/navigation";
 
 export default function Navbar() {
   return (
@@ -21,26 +15,31 @@ export default function Navbar() {
         {/* Logo */}
         <Logo />
 
-        {/* Desktop Menu */}
+        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
-          {navItems.map((item) => (
+          {navigation.map((item) => (
             <Link
-              key={item.name}
+              key={item.title}
               href={item.href}
-              className="text-sm text-zinc-300 transition hover:text-teal-400"
+              className="text-sm text-zinc-300 transition-colors hover:text-teal-400"
             >
-              {item.name}
+              {item.title}
             </Link>
           ))}
         </nav>
 
         {/* Right Side */}
         <div className="flex items-center gap-3">
-          <Button className="hidden md:flex">
-            Contact
-          </Button>
+          <Link href="/contact">
+  <Button className="hidden md:flex">
+    Contact
+  </Button>
+</Link>
 
-          <button className="rounded-lg border border-zinc-700 p-2 md:hidden">
+          <button
+            type="button"
+            className="rounded-lg border border-zinc-700 p-2 md:hidden"
+          >
             <Menu size={22} />
           </button>
         </div>

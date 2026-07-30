@@ -32,7 +32,7 @@ export default function Hero() {
             🇮🇳 India's Modern Real Estate Learning Platform
           </span>
 
-          <h1 className="mt-8 text-5xl font-black leading-tight text-white md:text-7xl">
+          <h1 className="mt-8 text-5xl leading-tight font-black text-white md:text-7xl">
             Learn Real Estate
             <span className="block bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">
               Before You Invest
@@ -41,16 +41,14 @@ export default function Hero() {
 
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-zinc-400">
             Kaushik Realty Lab simplifies real estate through practical
-            learning, calculators, legal guides, market insights and
-            educational resources for home buyers and investors.
+            learning, calculators, legal guides, market insights and educational
+            resources for home buyers and investors.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Button>Start Learning</Button>
 
-            <Button variant="secondary">
-              Explore Tools
-            </Button>
+            <Button variant="secondary">Explore Tools</Button>
           </div>
 
           <div className="mt-16 grid grid-cols-2 gap-5 md:grid-cols-4">
@@ -61,9 +59,7 @@ export default function Hero() {
               >
                 <Icon className="mx-auto mb-3 text-teal-400" size={28} />
 
-                <p className="text-sm text-zinc-300">
-                  {text}
-                </p>
+                <p className="text-sm text-zinc-300">{text}</p>
               </div>
             ))}
           </div>

@@ -8,13 +8,9 @@ export default function Logo() {
       </div>
 
       <div>
-        <h1 className="text-lg font-bold text-white">
-          Kaushik Realty Lab
-        </h1>
+        <h1 className="text-lg font-bold text-white">Kaushik Realty Lab</h1>
 
-        <p className="text-xs text-zinc-400">
-          Learn • Compare • Invest Wisely
-        </p>
+        <p className="text-xs text-zinc-400">Learn • Compare • Invest Wisely</p>
       </div>
     </Link>
   );

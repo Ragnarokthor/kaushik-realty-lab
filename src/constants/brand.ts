@@ -5,8 +5,7 @@ export const BRAND = {
 
   tagline: "Learn • Compare • Invest Wisely",
 
-  description:
-    "India's modern real estate learning platform.",
+  description: "India's modern real estate learning platform.",
 
   email: "hello@kaushikrealtylab.com",
 
