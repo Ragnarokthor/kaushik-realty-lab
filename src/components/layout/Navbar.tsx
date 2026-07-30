@@ -1,6 +1,7 @@
 "use client";
 
 import Logo from "./Logo";
+import Link from "next/link";
 import { Menu } from "lucide-react";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
