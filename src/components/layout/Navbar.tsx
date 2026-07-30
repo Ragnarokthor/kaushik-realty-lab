@@ -3,6 +3,9 @@
 import Link from "next/link";
 import { Menu } from "lucide-react";
 
+import clsx from "clsx";
+import { useScroll } from "@/hooks/useScroll";
+
 import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 import Container from "@/components/ui/Container";
@@ -11,8 +14,16 @@ import { navigation } from "@/config/navigation";
 import { ROUTES } from "@/constants/routes";
 
 export default function Navbar() {
+  const isScrolled = useScroll();
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#030712]/80 backdrop-blur-xl">
+    <header
+  className={clsx(
+    "sticky top-0 z-50 transition-all duration-300",
+    isScrolled
+      ? "border-b border-white/10 bg-[#030712]/90 shadow-lg backdrop-blur-xl"
+      : "bg-transparent"
+  )}
+>
       <Container className="flex h-20 items-center justify-between">
         {/* Logo */}
         <Logo />
